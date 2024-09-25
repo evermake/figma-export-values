@@ -10,19 +10,23 @@
   "exports": {
     "types": "./dist/types.d.ts"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build:plugin": "tsx ./scripts/build-plugin.ts",
     "build:package": "tsx ./scripts/build-package.ts",
     "typecheck": "tsc -b --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "release": "bumpp package.json",
     "deps": "taze -wI"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.1",
     "@figma/plugin-typings": "^1.100.2",
     "@types/node": "^22.7.0",
+    "bumpp": "^9.5.2",
     "esbuild": "^0.24.0",
     "eslint": "^9.11.1",
     "eslint-plugin-format": "^0.1.2",
