@@ -5,7 +5,8 @@
 Plugin has the following commands:
 
 - `Export variables` — to export all variable collections and variables.
-- `Export text styles` — to export text styles.
+- `Export text styles` — to export all text styles.
+- `Export effect styles` — to export all effect styles.
 
 ## License
 

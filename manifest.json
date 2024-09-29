@@ -9,7 +9,8 @@
   },
   "menu": [
     { "name": "Export variables", "command": "variables" },
-    { "name": "Export text styles", "command": "text-styles" }
+    { "name": "Export text styles", "command": "text-styles" },
+    { "name": "Export effect styles", "command": "effect-styles" }
   ],
   "enableProposedApi": false,
   "documentAccess": "dynamic-page",

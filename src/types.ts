@@ -6,6 +6,10 @@ export type ExportResultTextStyles = {
   styles: TextStyle[]
 }
 
+export type ExportResultEffectStyles = {
+  styles: EffectStyle[]
+}
+
 export type VariableCollection = {
   id: string
   name: string
@@ -49,10 +53,7 @@ export type Color = {
   a?: number
 }
 
-export type TextStyle = {
-  id: string
-  name: string
-  description: string
+export type TextStyle = BaseStyle & {
   font: {
     family: string
     style: string
@@ -66,3 +67,68 @@ export type TextStyle = {
     | { unit: 'px', value: number }
     | { unit: '%', value: number }
 }
+
+/**
+ * @see https://www.figma.com/plugin-docs/api/Effect/
+ */
+export type EffectStyle = BaseStyle & {
+  effects: Effect[]
+}
+
+export type Effect =
+  | EffectDropShadow
+  | EffectInnerShadow
+  | EffectLayerBlur
+  | EffectBackgroundBlur
+
+export type EffectDropShadow = {
+  type: 'DROP_SHADOW'
+  color: Color
+  offset: Vector
+  radius: number
+  spread?: number
+  visible: boolean
+  blendMode: BlendMode
+}
+
+export type EffectInnerShadow = Omit<EffectDropShadow, 'type'> & { type: 'INNER_SHADOW' }
+
+export type EffectLayerBlur = {
+  type: 'LAYER_BLUR'
+  radius: number
+  visible: boolean
+}
+
+export type EffectBackgroundBlur = Omit<EffectLayerBlur, 'type'> & { type: 'BACKGROUND_BLUR' }
+
+export type BaseStyle = {
+  id: string
+  name: string
+  description: string
+}
+
+export type Vector = {
+  x: number
+  y: number
+}
+
+export type BlendMode =
+  | 'PASS_THROUGH'
+  | 'NORMAL'
+  | 'DARKEN'
+  | 'MULTIPLY'
+  | 'LINEAR_BURN'
+  | 'COLOR_BURN'
+  | 'LIGHTEN'
+  | 'SCREEN'
+  | 'LINEAR_DODGE'
+  | 'COLOR_DODGE'
+  | 'OVERLAY'
+  | 'SOFT_LIGHT'
+  | 'HARD_LIGHT'
+  | 'DIFFERENCE'
+  | 'EXCLUSION'
+  | 'HUE'
+  | 'SATURATION'
+  | 'COLOR'
+  | 'LUMINOSITY'

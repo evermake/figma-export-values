@@ -1,3 +1,4 @@
+import { exportEffectStyles } from './exporters/effect-styles'
 import { exportTextStyles } from './exporters/text-styles'
 import { exportVariables } from './exporters/variables'
 
@@ -32,6 +33,14 @@ async function main(): Promise<string> {
         type: 'download',
         name: 'text-styles.json',
         payload: await exportTextStyles(),
+      })
+      break
+    }
+    case 'effect-styles': {
+      figma.ui.postMessage({
+        type: 'download',
+        name: 'effect-styles.json',
+        payload: await exportEffectStyles(),
       })
       break
     }
