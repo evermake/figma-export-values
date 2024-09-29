@@ -1,7 +1,7 @@
 {
   "name": "figma-export-values",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "packageManager": "pnpm@9.11.0",
   "description": "Figma plugin that exports variables and styles from a document.",
   "author": "Vladislav Deryabkin",
