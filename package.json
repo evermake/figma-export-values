@@ -7,6 +7,7 @@
   "author": "Vladislav Deryabkin",
   "license": "MIT",
   "repository": "github:evermake/figma-export-values",
+  "keywords": ["figma", "figma-plugin"],
   "exports": {
     "types": "./dist/types.d.ts"
   },
